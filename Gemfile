@@ -16,6 +16,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+gem 'devise'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
@@ -24,3 +26,4 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
