@@ -1,9 +1,74 @@
+<!-- Banner -->
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "Flatlay.JPG" %>');">
   <div class="banner-content">
     <p>Are You A Dapper Dan?</p>
     <%= form_tag(items_path, method: :get) do %>
       <%= text_field_tag :search, nil, class: 'banner-searchbar', placeholder: 'Search' %>
       <%= submit_tag 'Search', class: "btn-search" %>
+    <% end %>
+  </div>
+</div>
+<!-- Cards -->
+<!-- Tie Cards -->
+<div class="container cards">
+  <div class="category-title">
+    <h2>TIES</h2>
+    <%= link_to "See All", items_path %>
+  </div>
+  <div class="row">
+    <% @items.each do |item| %>
+    <div class="col col-sm-4 ">
+      <%= link_to item_path(item), class: "card-link" do %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      <% end %>
+        <div class="card-category"><%= item.category %></div>
+        <div class="card-description">
+          <p><%= item.brand %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<!-- Shades Cards -->
+<div class="container cards">
+  <div class="category-title">
+    <h2>TIES</h2>
+    <%= link_to "See All", items_path %>
+  </div>
+  <div class="row">
+    <% @items.each do |item| %>
+    <div class="col col-sm-4 ">
+      <%= link_to item_path(item), class: "card-link" do %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      <% end %>
+        <div class="card-category"><%= item.category %></div>
+        <div class="card-description">
+          <p><%= item.brand %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<!-- Belts Cards -->
+<div class="container cards">
+  <div class="category-title">
+    <h2>TIES</h2>
+    <%= link_to "See All", items_path %>
+  </div>
+  <div class="row">
+    <% @items.each do |item| %>
+    <div class="col col-sm-4 ">
+      <%= link_to item_path(item), class: "card-link" do %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      <% end %>
+        <div class="card-category"><%= item.category %></div>
+        <div class="card-description">
+          <p><%= item.brand %></p>
+        </div>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
