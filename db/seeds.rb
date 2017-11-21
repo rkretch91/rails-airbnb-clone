@@ -43,7 +43,7 @@ def user_create(number_of_users)
 end
 
 
-user_create(20)
+user_create(5)
 
 
 
@@ -68,7 +68,7 @@ def item_create(number_of_items)
 end
 
 
-item_create(200)
+item_create(4)
 
 
 def semi_smart_image_for_attachinary(category, item)

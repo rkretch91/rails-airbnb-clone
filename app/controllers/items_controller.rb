@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @items = Item.all
+    # if params[:search]
+    #   @items = Item.find(params[:search])
+    # else
+      @items = Item.all
+    # end
   end
 
   def show
@@ -9,25 +13,45 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    @user = User.find(params[:user_id])
   end
 
   def create
+    @item = Item.new(params_item)
+    @user = User.find(params[:user_id])
+    @item.user = @user
+    if @item.save
+      redirect_to dashboard_path, notice: "Item added to system!"
+    else
+      render :new
+    end
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    @item.update(params_item)
+    redirect_to dashboard_path
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to dashboard_path
   end
 
   def dashboard
   end
 
   private
-  def item_params
-    params.require(:item).permit(:search)
+
+  def params_item
+    params.require(:item).permit(:name, :category, :description, :condition, :brand, :price, :user_id)
+
   end
 end
+
