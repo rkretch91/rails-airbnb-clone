@@ -70,6 +70,66 @@ end
 
 item_create(200)
 
+
+def semi_smart_image_for_attachinary(category, item)
+  # NOTE: This is example is written for the model "Item" with images
+  # saved as "image" via attachinary. If you are calling it something
+  # different (ex. "avatar"), then you will need to change the code.
+  # Likewise, if your model is different name, you will need to change
+  # the model calls in the method. Place this method in "Seeds" file.
+
+  # The method is passed two paramters: 'category' (a string), &
+  # 'item' (the object that you will have the image seeded for)
+
+  # -------------------------------------------------------
+  # ----------------------START METHOD---------------------
+  # -------------------------------------------------------
+
+  db_dir = File.dirname(__FILE__)
+  # Gets folder of /db/ in Rails.
+
+  image_ranges = {
+    "bags" => (1..6).to_a,
+    "jewellery" => (1..5).to_a,
+    "fine watches" => (1..5).to_a,
+    "belts" => (1..5).to_a,
+    "ties" => (1..5).to_a,
+    "glasses" => (1..5).to_a,
+    "hats" => (1..5).to_a,
+    "pocket squares" => (1..5).to_a,
+    "cufflinks" => (1..5).to_a
+
+  }
+  # "category_1", ... IMPORTANT: The categories must be strings. No Symbols.
+  # For the ranges for each catgory (i.e. "(1..5).to_a"), change the number "5"
+  # to the number of images for that category that you have.
+
+  # Item Range Example: "windsurfing" => (1..3).to_a
+  # ((This is for files named: "windsurfing-1.jpg", "windsurfing-2.jpg", etc.))
+
+  # Item Range Example (for User): "female" => (1..7).to_a
+  # ((This is an example for using categories for gendered-photos for user avatar))
+  random_number_for_category = image_ranges[category].sample
+  # This chooses the random number within a range of images (ex: 1, 2, 7, 17, 3)
+
+  path = db_dir + "/images/#{category}-#{random_number_for_category}.jpg"
+  # This sets the path to "windsurfing-1.jpg" in /db/images/ directory.
+
+  item.image = File.open(path, 'r')
+  # This uploads the item via attachinary.
+  # NOTE: the .image should change based on your migration.
+
+  # ex: if using  "avatar" for User model, then change to "item.avatar"
+
+  item.save
+  # Saves item after image upload.
+end
+
+
+Item.all.each do |item|
+  semi_smart_image_for_attachinary(item.category, item)
+end
+
 # bookings
 # start_date end_date item_id user_id
 
