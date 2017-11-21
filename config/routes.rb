@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
+  resources :items do
+    resources :bookings, only: [ :new, :create, :edit, :update, :destroy ] do
+      resources :reviews, only: [ :new, :create ]
+    end
+  end
   mount Attachinary::Engine => "/attachinary"
+
+  get "dashboard", to: "items#dashboard", as: :dashboard
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
