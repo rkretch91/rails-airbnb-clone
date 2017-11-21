@@ -7,12 +7,15 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+    <%= form_tag(items_path, method: :get) do %>
+      <%= text_field_tag :search, nil, class: 'searchbar', placeholder: 'Search' %>
+      <%= submit_tag 'Search', style: "display: none;" %>
+    <% end %>
+
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Audrey", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Log Out", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -40,6 +43,7 @@
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= image_tag "bow-tie.png", class: "avatar" %>
     <% end %>
   </div>
 

@@ -25,4 +25,9 @@ class ItemsController < ApplicationController
 
   def dashboard
   end
+
+  private
+  def item_params
+    params.require(:item).permit(:search)
+  end
 end
