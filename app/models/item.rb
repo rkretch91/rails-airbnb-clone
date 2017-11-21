@@ -1,5 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
+  has_attachment :image
+  
   has_many :bookings, dependent: :destroy
   # has_many :reviews, through: :bookings, dependent: :destroy
 
@@ -9,4 +11,5 @@ class Item < ApplicationRecord
   validates :condition, presence: true, inclusion: { in: ["perfect", "very good", "good", "worn well"]}
   validates :brand, presence: true
   validates :price, presence: true
+  
 end
