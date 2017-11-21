@@ -3,9 +3,9 @@
     <h1>add a new item!</h1>
       <%= simple_form_for @item do |i| %>
         <%= i.input :name %>
-        <%= i.input :category %>
+        <%= i.input :category, collection: ["bags", "jewellery", "fine watches", "belts", "ties", "glasses", "hats", "pocket squares", "cufflinks"] %>
         <%= i.input :description %>
-        <%= i.input :condition %>
+        <%= i.input :condition, collection: ["perfect", "very good", "good", "worn well"] %>
         <%= i.input :brand %>
         <%= i.input :price %>
         <%= i.button :submit %>

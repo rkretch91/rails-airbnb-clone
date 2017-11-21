@@ -14,15 +14,15 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
 
   def create
     @item = Item.new(params_item)
-    @user = User.find(params[:user_id])
+    @user = current_user
     @item.user = @user
     if @item.save
-      redirect_to dashboard_path, notice: "Item added to system!"
+      redirect_to dashboard_path(current_user), notice: "Item added to system!"
     else
       render :new
     end
