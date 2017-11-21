@@ -1,2 +1,16 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<div class="row forms">
+  <div class="col-xs-4 col-xs-offset-4">
+    <h1>add a new item!</h1>
+      <%= simple_form_for @item do |i| %>
+        <%= i.input :name %>
+        <%= i.input :category %>
+        <%= i.input :description %>
+        <%= i.input :condition %>
+        <%= i.input :brand %>
+        <%= i.input :price %>
+        <%= i.button :submit %>
+      <% end %>
+  </div>
+</div>
+
+
