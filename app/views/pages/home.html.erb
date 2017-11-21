@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "Flatlay.JPG" %>');">
+  <div class="banner-content">
+    <p>Are You A Dapper Dan?</p>
+    <%= form_tag(items_path, method: :get) do %>
+      <%= text_field_tag :search, nil, class: 'banner-searchbar', placeholder: 'Search' %>
+      <%= submit_tag 'Search', class: "btn-search" %>
+    <% end %>
+  </div>
+</div>
