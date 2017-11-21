@@ -27,9 +27,11 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-
   def edit
     @item = Item.find(params[:id])
+    unless @item.user == current_user
+      redirect_to dashboard_path, notice: "This isn't your item"
+    end
   end
 
   def update
