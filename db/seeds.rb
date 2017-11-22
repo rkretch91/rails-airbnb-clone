@@ -32,7 +32,7 @@ def user_create(number_of_users)
       email: Faker::Internet.free_email,
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
-      address: "#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.country}",
+      address: Faker::Address.city,
       phone_number: Faker::PhoneNumber.cell_phone,
       password: "123123"
     }
