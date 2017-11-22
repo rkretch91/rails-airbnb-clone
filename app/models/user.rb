@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :reviews, through: :bookings, dependent: :destroy
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
