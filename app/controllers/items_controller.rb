@@ -1,8 +1,5 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  def index
-    @items = Item.find_by(params[:search])
-  end
 
   def self.search(search)
     if search
@@ -11,6 +8,11 @@ class ItemsController < ApplicationController
       all
     end
   end
+
+  def index
+    @items = Item.search(params[:search])
+  end
+
 
   def show
     @item = Item.find(params[:id])
