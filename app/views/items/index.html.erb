@@ -1,7 +1,7 @@
 <%= link_to "home", root_path %>
 <div class="container cards">
   <div class="category-title">
-    <h2><%= "You have searched #{@query.upcase}" %></h2>
+    <h2><%= "You have searched: #{@query}" %></h2>
     <%= link_to "See All", items_path %>
   </div>
   <div class="row">
