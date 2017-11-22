@@ -118,7 +118,7 @@ def semi_smart_image_for_attachinary(category, item)
   path = db_dir + "/images/#{category}-#{random_number_for_category}.jpg"
   # This sets the path to "windsurfing-1.jpg" in /db/images/ directory.
 
-  item.image = File.open(path, 'r')
+  item.photo = File.open(path, 'r')
   # This uploads the item via attachinary.
   # NOTE: the .image should change based on your migration.
 
