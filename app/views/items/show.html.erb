@@ -1,23 +1,30 @@
-<div class="container item">
-  <div class="item-info">
-    <h1><%= @item.name %></h1>
-    <p>Category: <%= @item.category %></p>
-    <p>Description: <%= @item.description %></p>
-    <p>Condition: <%= @item.condition %></p>
-    <p>Brand: <%= @item.brand %></p>
-    <%= link_to "bring me back", items_path %>
-  </div>
-
-  <div class="booking">
-    <div class="price-review">
-    <p> ￥<%= @item.price %> per day</p>
+<div class="container">
+  <div class="item">
+    <div class="item-info">
+      <h1><%= @item.name %></h1>
+      <p>Category: <%= @item.category %></p>
+      <p>Description: <%= @item.description %></p>
+      <p>Condition: <%= @item.condition %></p>
+      <p>Brand: <%= @item.brand %></p>
+      <%= link_to "bring me back", items_path %>
     </div>
-    <div class="calendars">
-      <%= simple_form_for [@item] do |i| %>
-        <%= i.input :name %>
-        <%= i.input :category %>
-        <%= i.button :submit %>
-        <% end %>
+
+    <div class="booking">
+      <div class="price-review">
+      <p> ￥<%= @item.price %> per day</p>
+      </div>
+      <div class="calendars">
+        <%= simple_form_for [@item] do |i| %>
+          <%= i.input :name %>
+          <%= i.input :category %>
+          <%= i.button :submit %>
+          <% end %>
+      </div>
+      <div class="map">
+        <p>map</p>
+        <p>map</p>
+        <p>map</p>
+      </div>
     </div>
   </div>
 </div>
