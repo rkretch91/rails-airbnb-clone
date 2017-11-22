@@ -1,9 +1,23 @@
-<h1>Sexify this shit girlllll @Audrey -- pon de floor</h1>
-<h1><%= @item.name %></h1>
-<p><%= @item.category %></p>
-<p><%= @item.description %></p>
-<p><%= @item.condition %></p>
-<p><%= @item.brand %></p>
-<p><%= @item.price %></p>
-<%= link_to "bring me back", items_path %>
+<div class="container item">
+  <div class="item-info">
+    <h1><%= @item.name %></h1>
+    <p>Category: <%= @item.category %></p>
+    <p>Description: <%= @item.description %></p>
+    <p>Condition: <%= @item.condition %></p>
+    <p>Brand: <%= @item.brand %></p>
+    <%= link_to "bring me back", items_path %>
+  </div>
 
+  <div class="booking">
+    <div class="price-review">
+    <p> ￥<%= @item.price %> per day</p>
+    </div>
+    <div class="calendars">
+      <%= simple_form_for [@item] do |i| %>
+        <%= i.input :name %>
+        <%= i.input :category %>
+        <%= i.button :submit %>
+        <% end %>
+    </div>
+  </div>
+</div>
