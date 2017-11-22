@@ -1,11 +1,15 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    # if params[:search]
-    #   @items = Item.find(params[:search])
-    # else
-      @items = Item.all
-    # end
+    @items = Item.find_by(params[:search])
+  end
+
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{params[:search]}%")
+    else
+      all
+    end
   end
 
   def show
@@ -52,7 +56,7 @@ class ItemsController < ApplicationController
   private
 
   def params_item
-    params.require(:item).permit(:name, :category, :description, :condition, :brand, :price, :user_id, :photo)
+    params.require(:item).permit(:name, :category, :description, :condition, :brand, :price, :user_id, :photo, :search)
 
   end
 end
