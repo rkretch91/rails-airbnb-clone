@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.search(params[:search])
+    @query = params[:search]
   end
 
 
