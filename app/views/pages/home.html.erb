@@ -16,7 +16,7 @@
     <%= link_to "See All", items_path %>
   </div>
   <div class="row">
-    <% Array(@ties).each do |tie| %>
+    <% @ties.each do |tie| %>
     <div class="col col-sm-4 ">
       <%= link_to item_path(tie), class: "card-link" do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
@@ -37,7 +37,7 @@
     <%= link_to "See All", items_path %>
   </div>
   <div class="row">
-    <% Array(@shades).each do |shade| %>
+    <% @shades.each do |shade| %>
     <div class="col col-sm-4 ">
       <%= link_to item_path(shade), class: "card-link" do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
@@ -58,7 +58,7 @@
     <%= link_to "See All", items_path %>
   </div>
   <div class="row">
-    <% Array(@belts).each do |belt| %>
+    <% @belts.each do |belt| %>
     <div class="col col-sm-4 ">
       <%= link_to item_path(belt), class: "card-link" do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
