@@ -1,5 +1,3 @@
-require 'Faker'
-
 Item.delete_all
 User.delete_all
 
