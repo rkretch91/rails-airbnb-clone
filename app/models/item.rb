@@ -11,4 +11,13 @@ class Item < ApplicationRecord
   validates :condition, presence: true, inclusion: { in: ["perfect", "very good", "good", "worn well"]}
   validates :brand, presence: true
   validates :price, presence: true
+
+  def self.search(search)
+  if search
+    where('category LIKE ?', "%#{search}%")
+  else
+    all
+  end
+end
+
 end

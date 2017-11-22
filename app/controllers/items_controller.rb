@@ -1,14 +1,6 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  def self.search(search)
-    if search
-      where('name LIKE ?', "%#{params[:search]}%")
-    else
-      all
-    end
-  end
-
   def index
     @items = Item.search(params[:search])
   end
