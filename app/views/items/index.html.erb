@@ -1,17 +1,21 @@
 <%= link_to "home", root_path %>
-  <div class="container">
-    <div class="row">
-      <% @items.each do |i| %>
-      <div class="col-xs-4 col-xs-offset-4">
-        <h2><%= i.name %></h2>
-        <p><%= i.category %></p>
-        <p><%= i.description %></p>
-        <p><%= i.condition %></p>
-        <p><%= i.brand %></p>
-        <p><%= i.price %></p>
-        <%= link_to "more details", item_path(i) %>
-      </div>
+<div class="container cards">
+  <div class="category-title">
+    <h2><%= "You have searched #{}" %></h2>
+    <%= link_to "See All", items_path %>
+  </div>
+  <div class="row">
+    <% @items.each do |item| %>
+    <div class="col col-sm-4 ">
+      <%= link_to item_path(item), class: "card-link" do %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= item.photo? ? (cl_image_path item.photo.path) : (image_path 'Flatlay.JPG') %>');">
       <% end %>
+        <div class="card-category"><%= item.name %></div>
+        <div class="card-description">
+          <p><%= item.brand %></p>
+        </div>
+      </div>
     </div>
-</div>
+    <% end %>
+  </div>
 </div>
