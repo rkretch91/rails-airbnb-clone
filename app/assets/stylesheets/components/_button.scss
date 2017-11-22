@@ -1,0 +1,24 @@
+.add-item {
+
+text-align: center;
+padding-top: 60px;
+}
+
+.btn-add {
+  color: white;
+  padding: 16px 120px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: $purple;
+  transition: background 0.3s ease;
+  margin: 0 auto;
+  position: relative;
+}
+
+.btn-add:hover {
+  opacity: 0.8;
+  background: $purple;
+  text-decoration: none;
+  color: white;
+}
+
