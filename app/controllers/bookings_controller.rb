@@ -1,14 +1,18 @@
 class BookingsController < ApplicationController
   def new
-    @booking = Booking.new
     @item = Item.find(params[:item_id])
-    @user = current_user
+    @booking = @item.bookings.new
+    @booking.user = current_user
   end
 
   def create
-    @booking = Booking.new(params_booking)
-    @user = current_user
     @item = Item.find(params[:item_id])
+    @booking = @item.bookings.new(params_booking)
+    @booking.user = @user
+    if
+    else
+
+    end
   end
 
   def edit
