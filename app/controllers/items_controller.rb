@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
     @user = current_user
     @item.user = @user
     if @item.save
-      redirect_to dashboard_path(current_user), notice: "Item added to system!"
+      redirect_to root_path, notice: "Item added to system!"
     else
       render :new
     end
