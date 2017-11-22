@@ -24,6 +24,7 @@ gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'omniauth-facebook'
 
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
