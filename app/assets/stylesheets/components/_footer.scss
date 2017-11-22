@@ -20,7 +20,7 @@
   right:22px;
 }
 .footer-links a {
-  color: #2F1B25;
+  color: $purple;
   opacity: 1;
   text-decoration: none;
   font-size: 36px;
@@ -28,9 +28,6 @@
 }
 .footer-links a:hover {
   opacity: 0.8;
-}
-.footer .fa-heart {
-  color: #D23333;
 }
 
 
