@@ -11,6 +11,4 @@ class Item < ApplicationRecord
   validates :condition, presence: true, inclusion: { in: ["perfect", "very good", "good", "worn well"]}
   validates :brand, presence: true
   validates :price, presence: true
-  validates :photo, presence: true
-
 end

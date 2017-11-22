@@ -9,7 +9,7 @@ BRANDS = [
 
 
 CATEGORY = [
-  "bags", "jewellery", "fine watches", "belts", "ties", "glasses", "hats", "pocket squares", "cufflinks"
+  "bags", "jewellery", "fine watches", "belts", "ties", "shades", "hats", "pocket squares", "cufflinks"
 ]
 CONDITION = [
   "perfect", "very good", "good", "worn well"
@@ -44,6 +44,7 @@ end
 
 
 user_create(5)
+puts "created users"
 
 
 
@@ -64,6 +65,8 @@ def item_create(number_of_items)
       user_id: User.all.sample.id
     }
     Item.create(item_params)
+    puts "created item"
+
   end
 end
 
@@ -115,7 +118,7 @@ def semi_smart_image_for_attachinary(category, item)
   path = db_dir + "/images/#{category}-#{random_number_for_category}.jpg"
   # This sets the path to "windsurfing-1.jpg" in /db/images/ directory.
 
-  item.image = File.open(path, 'r')
+  item.photo = File.open(path, 'r')
   # This uploads the item via attachinary.
   # NOTE: the .image should change based on your migration.
 
