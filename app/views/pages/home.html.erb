@@ -16,14 +16,14 @@
     <%= link_to "See All", items_path %>
   </div>
   <div class="row">
-    <% @items.each do |item| %>
+    <% @ties.each do |tie| %>
     <div class="col col-sm-4 ">
-      <%= link_to item_path(item), class: "card-link" do %>
+      <%= link_to item_path(tie), class: "card-link" do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
       <% end %>
-        <div class="card-category"><%= item.category %></div>
+        <div class="card-category"><%= tie.category %></div>
         <div class="card-description">
-          <p><%= item.brand %></p>
+          <p><%= tie.brand %></p>
         </div>
       </div>
     </div>
@@ -33,18 +33,18 @@
 <!-- Shades Cards -->
 <div class="container cards">
   <div class="category-title">
-    <h2>TIES</h2>
+    <h2>SHADES</h2>
     <%= link_to "See All", items_path %>
   </div>
   <div class="row">
-    <% @items.each do |item| %>
+    <% @shades.each do |shade| %>
     <div class="col col-sm-4 ">
-      <%= link_to item_path(item), class: "card-link" do %>
+      <%= link_to item_path(shade), class: "card-link" do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
       <% end %>
-        <div class="card-category"><%= item.category %></div>
+        <div class="card-category"><%= shade.category %></div>
         <div class="card-description">
-          <p><%= item.brand %></p>
+          <p><%= shade.brand %></p>
         </div>
       </div>
     </div>
@@ -54,18 +54,18 @@
 <!-- Belts Cards -->
 <div class="container cards">
   <div class="category-title">
-    <h2>TIES</h2>
+    <h2>BELTS</h2>
     <%= link_to "See All", items_path %>
   </div>
   <div class="row">
-    <% @items.each do |item| %>
+    <% @belts.each do |belt| %>
     <div class="col col-sm-4 ">
-      <%= link_to item_path(item), class: "card-link" do %>
+      <%= link_to item_path(belt), class: "card-link" do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
       <% end %>
-        <div class="card-category"><%= item.category %></div>
+        <div class="card-category"><%= belt.category %></div>
         <div class="card-description">
-          <p><%= item.brand %></p>
+          <p><%= belt.brand %></p>
         </div>
       </div>
     </div>
