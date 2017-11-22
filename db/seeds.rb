@@ -44,6 +44,7 @@ end
 
 
 user_create(5)
+puts "created users"
 
 
 
@@ -64,6 +65,8 @@ def item_create(number_of_items)
       user_id: User.all.sample.id
     }
     Item.create(item_params)
+    puts "created item"
+
   end
 end
 
