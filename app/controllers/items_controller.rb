@@ -1,12 +1,10 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    # if params[:search]
-    #   @items = Item.find(params[:search])
-    # else
-      @items = Item.all
-    # end
+    @items = Item.search(params[:search])
   end
+
 
   def show
     @item = Item.find(params[:id])
@@ -52,7 +50,7 @@ class ItemsController < ApplicationController
   private
 
   def params_item
-    params.require(:item).permit(:name, :category, :description, :condition, :brand, :price, :user_id, :photo)
+    params.require(:item).permit(:name, :category, :description, :condition, :brand, :price, :user_id, :photo, :search)
 
   end
 end
