@@ -9,7 +9,7 @@ BRANDS = [
 
 
 CATEGORY = [
-  "bags", "jewellery", "fine watches", "belts", "ties", "glasses", "hats", "pocket squares", "cufflinks"
+  "bags", "jewellery", "fine watches", "belts", "ties", "shades", "hats", "pocket squares", "cufflinks"
 ]
 CONDITION = [
   "perfect", "very good", "good", "worn well"
