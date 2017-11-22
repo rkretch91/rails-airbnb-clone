@@ -19,7 +19,7 @@
     <% @ties.each do |tie| %>
     <div class="col col-sm-4 ">
       <%= link_to item_path(tie), class: "card-link" do %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= tie.photo? ? (cl_image_path tie.photo.path) : (image_path 'Flatlay.JPG') %>');">
       <% end %>
         <div class="card-category"><%= tie.category %></div>
         <div class="card-description">
@@ -40,7 +40,7 @@
     <% @shades.each do |shade| %>
     <div class="col col-sm-4 ">
       <%= link_to item_path(shade), class: "card-link" do %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= shade.photo? ? (cl_image_path shade.photo.path) : (image_path 'Flatlay.JPG') %>');">
       <% end %>
         <div class="card-category"><%= shade.category %></div>
         <div class="card-description">
@@ -61,7 +61,7 @@
     <% @belts.each do |belt| %>
     <div class="col col-sm-4 ">
       <%= link_to item_path(belt), class: "card-link" do %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= belt.photo? ? (cl_image_path belt.photo.path) : (image_path 'Flatlay.JPG') %>');">
       <% end %>
         <div class="card-category"><%= belt.category %></div>
         <div class="card-description">

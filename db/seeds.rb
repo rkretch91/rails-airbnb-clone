@@ -16,7 +16,7 @@ CONDITION = [
 ]
 
 
-DESCRIPTIOPN = [
+DESCRIPTION = [
   "an A-line skirt fits closely around the waist and is slightly wider at the bottom","backless adjective","a backless dress does not cover a woman’s back and shoulders","baggy adjective","baggy clothes are very loose on your body","best adjective","used for referring to your nicest or most expensive clothes that you wear on special,occasions",
 "boot-cut adjective","boot-cut trousers become slightly wider at the bottom so that they fit easily over,boots",
 "brief adjective","not covering much of your body","button-down adjective","a button-down shirt has the ends of the collar fastened to the shirt with buttons","button-through adjective","british a button-through skirt or dress has buttons that go from the top to the,bottom",
@@ -52,26 +52,39 @@ puts "created users"
 # items
 # name category description condition brand price user_id
 
-def item_create(number_of_items)
-  number_of_items.times do
+# def item_create(number_of_items)
+#   number_of_items.times do
 
-    item_params = {
-      name:Faker::StarWars.droid,
+#     item_params = {
+#       name:Faker::StarWars.droid,
+#       category: CATEGORY.sample,
+#       description: DESCRIPTION.sample,
+#       condition: CONDITION.sample,
+#       brand: BRANDS.sample,
+#       price: Faker::Number.between(200, 2000),
+#       user_id: User.all.sample.id
+#     }
+#     Item.create(item_params)
+#     puts "created item"
+
+#   end
+# end
+
+
+# item_create(40)
+
+20.times do
+  Item.create(
+      name:Faker::Hipster.word,
       category: CATEGORY.sample,
-      description: DESCRIPTIOPN.sample,
+      description: DESCRIPTION.sample,
       condition: CONDITION.sample,
       brand: BRANDS.sample,
       price: Faker::Number.between(200, 2000),
       user_id: User.all.sample.id
-    }
-    Item.create(item_params)
-    puts "created item"
-
-  end
+      )
+  puts 'created item'
 end
-
-
-item_create(20)
 
 
 def semi_smart_image_for_attachinary(category, item)
@@ -97,11 +110,10 @@ def semi_smart_image_for_attachinary(category, item)
     "fine watches" => (1..5).to_a,
     "belts" => (1..5).to_a,
     "ties" => (1..5).to_a,
-    "glasses" => (1..5).to_a,
+    "shades" => (1..5).to_a,
     "hats" => (1..5).to_a,
     "pocket squares" => (1..5).to_a,
     "cufflinks" => (1..5).to_a
-
   }
   # "category_1", ... IMPORTANT: The categories must be strings. No Symbols.
   # For the ranges for each catgory (i.e. "(1..5).to_a"), change the number "5"
