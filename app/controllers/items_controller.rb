@@ -4,6 +4,21 @@ class ItemsController < ApplicationController
   def index
     @items = Item.search(params[:search])
     @query = params[:search]
+
+    # create the filter function for search result page
+    # Write Function that Checks if Item.categories has one of the search terms.
+    # if it does, then select that category
+    @preselect = {}
+    @search_cat = Item.categories.include?(params[:search]) ? "#{params[:search]}" : ""
+    @search_brand = Item.brands.include?(params[:search]) ? "#{params[:search]}" : ""
+    @preselect[:category] = @search_cat
+    @preselect[:brand] = @search_brand
+
+
+    if request.post?
+      @items_category = @items.select{|i| i.category == search_params[:category]}
+    end
+
   end
 
 
@@ -60,6 +75,10 @@ class ItemsController < ApplicationController
   def params_item
     params.require(:item).permit(:name, :category, :description, :condition, :brand, :price, :user_id, :photo, :search)
 
+  end
+
+  def search_params
+    params.require(:search).permit(:category, :condition, :brand, :price, :photo, )
   end
 end
 
