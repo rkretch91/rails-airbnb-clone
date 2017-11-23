@@ -14,6 +14,15 @@ class Booking < ApplicationRecord
     return bookings.empty?
   end
 
+  def valid_dates
+    today = Date.today
+    if end_date <= start_date && start_date < today
+      false
+    else
+      true
+    end
+  end
+
 end
 
 
