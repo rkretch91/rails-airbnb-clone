@@ -2,7 +2,6 @@
   <% avatar_url = current_user.facebook_picture_url || "bow-tie.png" %>
   <%= image_tag avatar_url, class: "avatar" %>
   <%= image_tag "dapper-dashboard.png", class: "header" %>
-  <h2><%= "Welcome #{@user.first_name}" %></h2>
 </div>
 
 <main class="tabs">
@@ -17,7 +16,9 @@
   <label for="tab3">Settings</label>
 
   <section id="content1">
-    <h2><%= link_to "Add item", new_item_path %></h2>
+    <div class="dashboard-button">
+      <%= link_to "Add item", new_item_path, class: "btn btn-primary" %>
+    </div>
     <div class="container cards">
       <div class="category-title">
         <h2><%= "You have added:" %></h2>
