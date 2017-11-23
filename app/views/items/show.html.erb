@@ -14,9 +14,9 @@
       <p> ￥<%= @item.price %> per day</p>
       </div>
       <div class="calendars">
-        <%= simple_form_for [@item] do |i| %>
-          <%= i.input :name %>
-          <%= i.input :category %>
+        <%= simple_form_for [@item, @booking] do |i| %>
+          <%= i.input :start_date %>
+          <%= i.input :end_date %>
           <%= i.button :submit %>
           <% end %>
       </div>

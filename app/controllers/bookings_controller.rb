@@ -1,14 +1,20 @@
 class BookingsController < ApplicationController
   def new
     @item = Item.find(params[:item_id])
-    @booking = @item.bookings.new
+    @booking = Booking.new
     @booking.user = current_user
   end
 
   def create
     @item = Item.find(params[:item_id])
-    @booking = @item.bookings.new(params_booking)
+    @booking = Booking.new(params_booking)
     @booking.user = current_user
+    @booking.item = @item
+    if @booking.save
+      redirect_to dashboard_path, notice: "Booking confirmed!"
+    else
+      render :new
+    end
   end
 
   def edit
