@@ -54,6 +54,11 @@ class ItemsController < ApplicationController
   end
 
   def dashboard
+    #for renting out
+    @item = Item.find(params_item)
+    @user = current_user
+    @item.user = @user
+    #for renting
   end
 
   private
