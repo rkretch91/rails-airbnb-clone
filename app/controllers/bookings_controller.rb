@@ -13,11 +13,14 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path, notice: "Booking confirmed!"
     else
-      render :new
+      render :new, notice: "I am sorry, these dates are unavailable."
     end
   end
 
   def edit
+    @item = Item.find(params[:item_id])
+    @booking = Booking.find(params[:id])
+    @booking.item = @item
   end
 
   def update
