@@ -10,10 +10,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(params_booking)
     @booking.user = current_user
     @booking.item = @item
-    if @booking.save
-      redirect_to dashboard_path, notice: "Booking confirmed!"
+    if @booking.check_date_availability
+      if @booking.save
+        redirect_to dashboard_path, notice: "Booking confirmed!"
+      end
     else
-      render :new, notice: "I am sorry, these dates are unavailable."
+      redirect_to item_path(@item), alert: "I am sorry, these dates are unavailable."
     end
   end
 
