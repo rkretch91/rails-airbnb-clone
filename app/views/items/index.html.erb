@@ -1,19 +1,27 @@
-<%= link_to "home", root_path %>
+<div class="search-container">
+  Form Here
+</div>
+
+<div class="search-banner">
+  <%= image_tag "search-banner.png", class: "search-banner-image" %>
+</div>
+
+
 <div class="container cards">
   <div class="category-title">
     <h2><%= "You have searched: #{@query}" %></h2>
-    <%= link_to "See All", items_path %>
   </div>
   <div class="row">
     <% @items.each do |item| %>
-    <div class="col col-sm-4 ">
+    <div class="col col-xs-12 col-sm-4">
       <%= link_to item_path(item), class: "card-link" do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= item.photo? ? (cl_image_path item.photo.path) : (image_path 'Flatlay.JPG') %>');">
       <% end %>
         <div class="card-category"><%= item.name %></div>
-        <div class="card-description">
-          <p><%= item.brand %></p>
-        </div>
+      </div>
+      <div class="card-info">
+        <p><%= item.brand %></p>
+        <p><%= item.price %></p>
       </div>
     </div>
     <% end %>
