@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @user = User.find(@item.user_id)
+    @booking = Booking.new
     # @user_coordinates = { latitude: @user.latitude, longitude: @user.longitude }
     @hash = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat user.latitude
