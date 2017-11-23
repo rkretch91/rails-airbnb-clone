@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
     @user = current_user
     @item.user = @user
     if @item.save
-      redirect_to root_path, notice: "Item added to system!"
+      redirect_to dashboard_path, notice: "Item added to system!"
     else
       render :new
     end
@@ -37,28 +37,30 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     unless @item.user == current_user
-      redirect_to dashboard_path, notice: "This isn't your item"
+      redirect_to dashboard_path, notice: "This isn't your item!"
     end
   end
 
   def update
     @item = Item.find(params[:id])
     @item.update(params_item)
-    redirect_to dashboard_path
+    redirect_to dashboard_path, notice: "Your item was updated!"
   end
 
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_path, notice: "Your item was deleted!"
   end
 
   def dashboard
-    #for renting out
-    @item = Item.find(params_item)
+    #for renting out: show items, add items, edit items, update items, destroy items
     @user = current_user
-    @item.user = @user
-    #for renting
+    @my_items = @user.items
+    #for renting: show bookings, edit bookings, update bookings, destroy bookings
+    @my_bookings = @user.bookings
+    #edit settings: display an edit form for user .... optional if we have time
+
   end
 
   private
