@@ -2,13 +2,15 @@
   h1 {
     text-transform: uppercase;
     text-align: center;
+    margin: 40px 0;
   }
   label {
     font-weight: lighter;
   }
-  input:last-child {
+  .btn {
     display: flex;
     justify-content: center;
+    margin-top: 40px;
   }
 }
 
