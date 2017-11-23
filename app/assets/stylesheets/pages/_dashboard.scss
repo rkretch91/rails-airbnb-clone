@@ -110,3 +110,33 @@ input:checked + label {
     right: 0;
   }
 }
+
+.edit-icons {
+  position: absolute;
+  right: 7px;
+  display: inline-flex;
+  margin-bottom: 30px;
+  i {
+    font-size: 18px;
+    padding-top: 5px;
+  }
+  i:first-child {
+    padding-right: 10px;
+    padding-top: 2px;
+  }
+  i:hover {
+    opacity: 0.5;
+  }
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.cards {
+  max-width: 900px;
+}
+
+.dashboard-card {
+  margin-bottom: 50px;
+}
