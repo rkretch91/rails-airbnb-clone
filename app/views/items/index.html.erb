@@ -8,9 +8,6 @@
 
 
 <div class="container cards">
-  <div class="category-title">
-    <h2><%= "You have searched: #{@query}" %></h2>
-  </div>
   <div class="row">
     <% @items.each do |item| %>
     <div class="col col-xs-12 col-sm-4">
@@ -21,7 +18,7 @@
       </div>
       <div class="card-info">
         <p><%= item.brand %></p>
-        <p><%= item.price %></p>
+        <p>￥<%= item.price %>/day</p>
       </div>
     </div>
     <% end %>

@@ -42,6 +42,9 @@
   border: solid 1px $grey-opac;
   padding: 15px;
   margin-bottom: 20px;
+  p:first-child{
+    font-weight: bold;
+  }
   p {
     margin: 0;
   }
