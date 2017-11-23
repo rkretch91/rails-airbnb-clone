@@ -10,12 +10,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(params_booking)
     @booking.user = current_user
     @booking.item = @item
-    if @booking.check_date_availability
+    if @booking.check_date_availability && @booking.valid_dates
       if @booking.save
         redirect_to dashboard_path, notice: "Booking confirmed!"
       end
     else
-      redirect_to item_path(@item), alert: "I am sorry, these dates are unavailable."
+      redirect_to item_path(@item), alert: "I am sorry, these dates are unavailable or are not valid."
     end
   end
 
@@ -26,6 +26,11 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:item_id])
+    @booking = Booking.find(params[:id])
+    @booking.item = @item
+    @booking.update(params_booking)
+    redirect_to dashboard_path, notice: "Your booking was updated!"
   end
 
   def destroy
