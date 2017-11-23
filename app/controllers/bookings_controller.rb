@@ -8,11 +8,8 @@ class BookingsController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @booking = @item.bookings.new(params_booking)
-    @booking.user = @user
-    if
-    else
+    @booking.user = current_user
 
-    end
   end
 
   def edit
