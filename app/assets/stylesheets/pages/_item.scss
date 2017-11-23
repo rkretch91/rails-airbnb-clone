@@ -8,3 +8,32 @@
 #map {
   margin-top: 20px;
 }
+
+.item-info {
+  text-align: center;
+  width: 500px;
+  img {
+    width: 200px;
+    background-color: $light-grey;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 18px;
+    text-align: left;
+  }
+  p {
+    text-align: left;
+    font-weight: lighter;
+  }
+}
+
+.item-icons {
+  display: flex;
+  justify-content: space-between;
+  p {
+    font-weight: lighter;
+  }
+}
