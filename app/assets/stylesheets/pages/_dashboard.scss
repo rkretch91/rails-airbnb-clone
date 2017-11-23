@@ -1,0 +1,105 @@
+.dashboard-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: solid 3px $light-grey;
+  }
+  .header {
+    width: 60%;
+  }
+}
+
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+}
+
+p {
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+main {
+  min-width: 320px;
+  max-width: 80%;
+  padding: 50px;
+  margin: 0 auto;
+  background: $white;
+}
+
+section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+.tabs input {
+  display: none;
+}
+
+.tabs label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+.tabs label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.tabs label[for*='1']:before { content: '\f155'; }
+.tabs label[for*='2']:before { content: '\f27e'; }
+.tabs label[for*='3']:before { content: '\f013'; }
+
+.tabs label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+.tabs input:checked + .tabs label {
+  color: $grey;
+  border: 1px solid #ddd;
+  border-top: 3px solid $purple;
+  border-bottom: 1px solid $white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  .tabs label {
+    font-size: 0;
+  }
+  .tabs label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .tabs label {
+    padding: 15px;
+  }
+}
