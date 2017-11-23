@@ -1,9 +1,43 @@
-<h1>Sexify this shit girlllll @Audrey -- pon de floor</h1>
-<h1><%= @item.name %></h1>
-<p><%= @item.category %></p>
-<p><%= @item.description %></p>
-<p><%= @item.condition %></p>
-<p><%= @item.brand %></p>
-<p><%= @item.price %></p>
-<%= link_to "bring me back", items_path %>
+<div class="container">
+  <div class="item">
+    <div class="item-info">
+      <h1><%= @item.name %></h1>
+      <p>Category: <%= @item.category %></p>
+      <p>Description: <%= @item.description %></p>
+      <p>Condition: <%= @item.condition %></p>
+      <p>Brand: <%= @item.brand %></p>
+      <%= link_to "bring me back", items_path %>
+    </div>
 
+    <div class="booking">
+      <div class="price-review">
+      <p> ￥<%= @item.price %> per day</p>
+      </div>
+      <div class="calendars">
+        <%= simple_form_for [@item] do |i| %>
+          <%= i.input :name %>
+          <%= i.input :category %>
+          <%= i.button :submit %>
+          <% end %>
+      </div>
+      <div id="map" style="width: 233px; height: 200px;"></div>
+
+      <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            if (markers.length == 0) {
+              handler.getMap().setZoom(2);
+            } else if (markers.length == 1) {
+              handler.getMap().setZoom(14);
+            }
+          });
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

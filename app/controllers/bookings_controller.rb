@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
     @item = Item.find(params[:item_id])
     @booking = @item.bookings.new(params_booking)
     @booking.user = current_user
-
   end
 
   def edit
