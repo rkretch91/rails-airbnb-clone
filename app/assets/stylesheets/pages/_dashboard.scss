@@ -43,11 +43,11 @@ section {
   border-top: 1px solid #ddd;
 }
 
-input {
+.tabs input {
   display: none;
 }
 
-label {
+.tabs label {
   display: inline-block;
   margin: 0 0 -1px;
   padding: 15px 25px;
@@ -57,22 +57,22 @@ label {
   border: 1px solid transparent;
 }
 
-label:before {
+.tabs label:before {
   font-family: fontawesome;
   font-weight: normal;
   margin-right: 10px;
 }
 
-label[for*='1']:before { content: '\f155'; }
-label[for*='2']:before { content: '\f27e'; }
-label[for*='3']:before { content: '\f013'; }
+.tabs label[for*='1']:before { content: '\f155'; }
+.tabs label[for*='2']:before { content: '\f27e'; }
+.tabs label[for*='3']:before { content: '\f013'; }
 
-label:hover {
+.tabs label:hover {
   color: #888;
   cursor: pointer;
 }
 
-input:checked + label {
+.tabs input:checked + .tabs label {
   color: $grey;
   border: 1px solid #ddd;
   border-top: 3px solid $purple;
@@ -89,17 +89,17 @@ input:checked + label {
 }
 
 @media screen and (max-width: 650px) {
-  label {
+  .tabs label {
     font-size: 0;
   }
-  label:before {
+  .tabs label:before {
     margin: 0;
     font-size: 18px;
   }
 }
 
 @media screen and (max-width: 400px) {
-  label {
+  .tabs label {
     padding: 15px;
   }
 }
