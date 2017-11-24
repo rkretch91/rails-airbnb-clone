@@ -30,12 +30,13 @@ class Item < ApplicationRecord
     ["bags", "jewellery", "fine watches", "belts", "ties", "shades", "hats", "pocket squares", "cufflinks"]
   end
 
+  def self.conditions
+    ["perfect", "very good", "good", "worn well"]
+  end
+
   def next_booked
     today = Date.today
     bookings.select { |b| b.start_date > today }.first
   end
 
-  def self.conditions
-    ["perfect", "very good", "good", "worn well"]
-  end
 end
