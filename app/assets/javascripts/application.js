@@ -10,6 +10,8 @@
 //= require bootstrap-datepicker
 //= require_tree .
 
+
+
   $(document).on("page:change ready", function(){
     $('input.datepicker').datepicker();
   });
