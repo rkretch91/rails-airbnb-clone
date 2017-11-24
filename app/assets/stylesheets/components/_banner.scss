@@ -8,11 +8,18 @@
   justify-content: left;
   background-attachment: fixed;
   padding: 0 65px;
-  p {
+  h1{
     font-size: 42px;
-    font-weight: bold;
     color: $white;
     margin-bottom: 30px;
+  }
+  p {
+    font-size: 20px;
+    color: $white;
+    line-height: 0.8;
+  }
+  form {
+    margin-top: 30px;
   }
 }
 

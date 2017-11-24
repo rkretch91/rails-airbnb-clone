@@ -1,7 +1,9 @@
 <!-- Banner -->
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "Flatlay.JPG" %>');">
   <div class="banner-content">
-    <p>Are You A Dapper Dan?</p>
+    <h1>Are You A Dapper Dan?</h1>
+    <p>A luxury menswear accessories rental platform</p>
+    <p>...because $300 for a tie you'll only wear once sucks.</p>
     <%= form_tag(items_path, method: :get) do %>
       <%= text_field_tag :search, params[:search], class: 'banner-searchbar', placeholder: 'Search' %>
       <%= submit_tag 'Search', name: nil, class: "btn-search" %>
