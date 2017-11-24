@@ -4,8 +4,35 @@ class ItemsController < ApplicationController
   def index
     @items = Item.search(params[:search])
     @query = params[:search]
-  end
+    @query_message = "You have searched: #{@query}"
+    @preselect = {}
 
+    s_params = params.permit("category", "brand", "condition").to_hash
+
+    if s_params.size > 1
+    # FILTERS BEGIN
+    @items = @items.select{|i| i.brand == s_params["brand"]} unless s_params["brand"].blank?
+    @items = @items.select{|i| i.category == s_params["category"]} unless s_params["category"].blank?
+    @items = @items.select{|i| i.condition == s_params["condition"]} unless s_params["condition"].blank?
+
+    else
+      @search_cat = Item.categories.include?(params[:search]) ? "#{params[:search]}" : ""
+      @search_brand = Item.brands.include?(params[:search]) ? "#{params[:search]}" : ""
+      @preselect[:category] = @search_cat
+      @preselect[:brand] = @search_brand
+    end
+
+
+    if @items.size == 0
+      @items = Item.all
+      @query_message = "There is no results! Search again..."
+    end
+    # if request.post?
+    #   @items = @items.select{|i| i.category == search_params[:category]}
+    # end
+
+  end
+# http://localhost:3000/items?params%5B%3Acategory%5D=belts&params%5B%3Abrand%5D=Alexander+McQueen+%28brand%29&params%5B%3Acondition%5D=good
 
   def show
     @item = Item.find(params[:id])
@@ -68,6 +95,10 @@ class ItemsController < ApplicationController
   def params_item
     params.require(:item).permit(:name, :category, :description, :condition, :brand, :price, :user_id, :photo, :search)
 
+  end
+
+  def search_params
+    params.require(:search).permit(:category, :condition, :brand, :price, :photo )
   end
 end
 
