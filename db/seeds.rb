@@ -1,5 +1,7 @@
+Booking.delete_all
 Item.delete_all
 User.delete_all
+
 
 BRANDS = [
   "A.P.C.","Acne Studios","Reem Acra","Aimé Leon Dore","Akris","Azzedine Alaïa","Reem Alasadi","Alexander McQueen","Balenciaga", "Gucci", "Saint-Laurent", "Versace, Zegna", "Givenchy", "Off-White", "Suit Supply", "Dior", "Louis Vuitton"
@@ -75,7 +77,7 @@ puts "created users"
 
 # item_create(40)
 
-20.times do
+40.times do
   Item.create(
       name:Faker::Hipster.word,
       category: CATEGORY.sample,
