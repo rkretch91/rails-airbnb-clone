@@ -4,3 +4,28 @@
   justify-content: space-between;
   align-items: baseline;
 }
+
+.value-prop {
+  img {
+    height: 220px;
+  }
+  h3{
+    font-size: 18px;
+  }
+  display: flex;
+  justify-content: space-around;
+  align-items: top;
+  text-align: center;
+  background-color: $light-grey;
+  padding: 40px 0px;
+}
+
+
+.add-item {
+  padding: 50px;
+  margin: 50px 65px;
+  border: solid 1px #2f1b25;
+  h1 {
+    margin-bottom: 30px;
+  }
+}
