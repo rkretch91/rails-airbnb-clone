@@ -13,6 +13,9 @@
           <p>￥<%= booking.item.price %>/day</p>
         </div>
         <div class="edit-icons">
+            <%= link_to root_path do %>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            <% end %>
             <%= link_to edit_item_booking_path(booking.item, booking) do %>
               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <% end %>
