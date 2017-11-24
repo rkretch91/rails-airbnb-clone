@@ -36,7 +36,7 @@ class Item < ApplicationRecord
 
   def next_booked
     today = Date.today
-    bookings.select { |b| b.start_date > today }.first
+    bookings.select { |b| b.start_date >= today }.first
   end
 
 end
