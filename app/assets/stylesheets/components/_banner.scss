@@ -18,12 +18,16 @@
 
 .banner-searchbar {
   height: 40px;
-  width: 150px;
+  width: 50%;
   border-radius: 3px;
   border: none;
   background-color: rgba(255, 255, 255, 0.75);
   padding: 0 10px;
   margin-right: 10px;
+  &:focus{
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.85);
+  }
 }
 
 input {

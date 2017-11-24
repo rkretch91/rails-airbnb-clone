@@ -1,0 +1,33 @@
+<section id="content2">
+  <div class="row">
+    <% @my_bookings.each do |booking| %>
+    <div class="col col-xs-12 col-sm-6">
+      <div class="dashboard-card">
+        <%= link_to item_path(booking.item), class: "card-link" do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.item.photo? ? (cl_image_path booking.item.photo.path) : (image_path 'Flatlay.JPG') %>');">
+        <% end %>
+          <div class="card-category"><%= booking.item.name %></div>
+        </div>
+        <div class="card-info no-margin">
+          <p><%= booking.item.brand %></p>
+          <p>￥<%= booking.item.price %>/day</p>
+        </div>
+        <div class="edit-icons">
+            <%= link_to edit_item_booking_path(booking.item, booking) do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to item_booking_path(booking.item, booking), method: :delete,
+  data: { confirm: "Are you sure you want to delete this booking?" } do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
+        </div>
+        <div class="bookings">
+          <h3>Booked:</h3>
+          <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i>  <%= booking.start_date %>   </p>
+          <p><i class="fa fa-calendar-times-o" aria-hidden="true"></i>  <%= booking.end_date %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section>

@@ -1,0 +1,7 @@
+<div class="calendars">
+  <%= simple_form_for [@item, @booking] do |i| %>
+    <%= i.input :start_date %>
+    <%= i.input :end_date %>
+    <%= i.button :submit %>
+    <% end %>
+</div>

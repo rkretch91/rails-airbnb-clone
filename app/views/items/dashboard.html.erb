@@ -1,2 +1,25 @@
-<h1>Items#dashboard</h1>
-<p>Find me in app/views/items/dashboard.html.erb</p>
+<div class="dashboard-header">
+  <% avatar_url = current_user.facebook_picture_url || "bow-tie.png" %>
+  <%= image_tag avatar_url, class: "avatar" %>
+  <%= image_tag "dapper-dashboard.png", class: "header" %>
+</div>
+
+<main class="tabs">
+
+  <input id="tab1" type="radio" name="tabs" checked>
+  <label for="tab1">Rented Out</label>
+
+  <input id="tab2" type="radio" name="tabs">
+  <label for="tab2">Renting</label>
+
+  <input id="tab3" type="radio" name="tabs">
+  <label for="tab3">Settings</label>
+
+  <!-- Created partials of the tabs to clean up the code in this file -->
+
+
+  <%= render "rent-out-tab" %>
+  <%= render "renting" %>
+  <%= render "settings" %>
+
+</main>
