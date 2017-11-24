@@ -31,6 +31,7 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'pry-byebug'

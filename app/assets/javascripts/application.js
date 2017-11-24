@@ -7,7 +7,12 @@
 //= require underscore
 //= require gmaps/google
 //= require select2
+//= require bootstrap-datepicker
 //= require_tree .
+
+  $(document).on("page:change ready", function(){
+    $('input.datepicker').datepicker();
+  });
 
 
 
