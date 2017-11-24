@@ -7,7 +7,7 @@
         <%= i.input :description, as: :text, placeholder: "Write about how dapper your item is. The better the description, the more likely it will be booked!" %>
         <%= i.input :condition, as: :radio_buttons, collection: ["perfect", "very good", "good", "worn well"]%>
         <%= i.input :brand %>
-        <%= i.input :price %>
+        <%= i.input :price, label: "Price Per Day (in RMB)" %>
         <%= i.input :photo, as: :attachinary %>
         <%= i.button :submit, class:"btn-add" %>
       <% end %>
