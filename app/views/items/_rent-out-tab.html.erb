@@ -5,9 +5,11 @@
   </div>
   <!-- Cards -->
   <div class="container cards">
-    <div class="category-title">
-      <h2><%= "Your Dapper Dan Items:" %></h2>
-    </div>
+    <% if @my_items.count > 0 %>
+      <div class="category-title">
+        <h2><%= "Your Dapper Dan Items:" %></h2>
+      </div>
+    <% end %>
     <div class="row">
       <% @my_items.each do |item| %>
       <div class="col col-xs-12 col-sm-6">
@@ -22,24 +24,29 @@
             <p>￥<%= item.price %>/day</p>
           </div>
           <div class="edit-icons">
-              <%= link_to edit_item_path(item) do %>
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-              <% end %>
-              <%= link_to "/items/#{item.id}", method: :delete,
-            data: { confirm: "Are you sure you want to get rid of this item?" } do %>
-                <i class="fa fa-trash" aria-hidden="true"></i>
-                <% end %>
+            <%= link_to root_path do %>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to edit_item_path(item) do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to "/items/#{item.id}", method: :delete,
+          data: { confirm: "Are you sure you want to get rid of this item?" } do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
           </div>
           <div class="your-bookings"></div>
         </div>
-        <div class="your-bookings">
-        <h2><%= item.next_booked == nil ? "" : "Your item has a booking:" %></h2>
-        <p><%= item.next_booked == nil ? "" : item.next_booked.start_date %></p>
-        <p><%= item.next_booked == nil ? "" : item.next_booked.end_date %></p>
-        <p><%= item.next_booked == nil ? "" : item.next_booked.user.email %></p>
-        <p><%= item.next_booked == nil ? "" : item.next_booked.user.address %></p>
-        <p><%= item.next_booked == nil ? "" : "Contact User" %></p>
-        </div>
+
+        <% if item.next_booked %>
+          <div class="your-bookings">
+            <div>
+              <h3><%= item.next_booked == nil ? "" : "Your item has a booking:" %></h3>
+              <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> <%= item.next_booked == nil ? "" : item.next_booked.start_date %></p>
+              <p><i class="fa fa-calendar-times-o" aria-hidden="true"></i> <%= item.next_booked == nil ? "" : item.next_booked.end_date %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
       <% end %>
     </div>
