@@ -2,13 +2,13 @@
   <div class="col-xs-4 col-xs-offset-4">
     <h1>edit item!</h1>
       <%= simple_form_for @item do |i| %>
-        <%= i.input :name %>
+        <%= i.input :name, placeholder: "Catchy name for your item" %>
         <%= i.input :category, collection: ["bags", "jewellery", "fine watches", "belts", "ties", "glasses", "hats", "pocket squares", "cufflinks"] %>
-        <%= i.input :description %>
+        <%= i.input :description, as: :text, placeholder: "Write about how dapper your item is. The better the description, the more likely it will be booked!" %>
         <%= i.input :condition, collection: ["perfect", "very good", "good", "worn well"] %>
         <%= i.input :brand %>
-        <%= i.input :price %>
-        <%= i.button :submit %>
+        <%= i.input :price, label: "Price Per Day (￥)" %>
+        <%= i.button :submit, class: "btn btn-primary" %>
       <% end %>
   </div>
 </div>
