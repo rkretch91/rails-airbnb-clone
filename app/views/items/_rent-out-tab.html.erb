@@ -32,7 +32,16 @@
           </div>
         </div>
       </div>
+      <h2>Your item has a booking:</h2>
+      <p><%= item.next_booked.start_date %></p>
+      <p><%= item.next_booked.end_date %></p>
+      <p><%= item.next_booked.user.email %></p>
+      <p><%= item.next_booked.user.address %></p>
+      <p>Contact User</p>
       <% end %>
     </div>
   </div>
 </section>
+
+
+<!--   ALL ITEM.NEXT_BOOKED (in <p> are meant to display bookings) -->

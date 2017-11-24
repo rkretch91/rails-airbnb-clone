@@ -24,13 +24,7 @@ class Booking < ApplicationRecord
   end
 
 
-
 end
 
 
 
-
-
-# bookings = Booking.all.select{|b| b.start_date < c.start_date && b.end_date > c.start_date }
-# bookings += Booking.all.select{|b| b.start_date < c.end_date && b.end_date > c.end_date }
-# bookings
