@@ -20,6 +20,7 @@
       <p>￥<%= @item.price %></p><p> /per day</p>
       </div>
       <div class="calendars">
+        <h3>Book it. Be dapper.</h3>
         <%= simple_form_for [@item, @booking] do |i| %>
           <%= i.input :start_date %>
           <%= i.input :end_date %>
@@ -139,7 +140,7 @@
             if (markers.length == 0) {
               handler.getMap().setZoom(2);
             } else if (markers.length == 1) {
-              handler.getMap().setZoom(14);
+              handler.getMap().setZoom(8);
             }
           });
         <% end %>
