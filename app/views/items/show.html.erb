@@ -22,8 +22,8 @@
       <div class="calendars">
         <h3>Book it. Be dapper.</h3>
         <%= simple_form_for [@item, @booking] do |i| %>
-          <%= i.input :start_date %>
-          <%= i.input :end_date %>
+          <%= i.input :start_date, as: :string, input_html: {class: 'datepicker'} %>
+          <%= i.input :end_date, as: :string, input_html: {class: 'datepicker'}%>
           <%= i.button :submit, class: "btn btn-primary" %>
           <% end %>
       </div>
