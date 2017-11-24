@@ -1,0 +1,51 @@
+.search-container {
+  width: 100%;
+  height: 280px;
+  background-color: $med-grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filters{
+  width: 80%;
+  text-align: center;
+  .btn {
+    margin-top: 40px;
+  }
+}
+
+// .search-inputs {
+//   span {
+//     border: none;
+//     width: 100px;
+//   }
+// }
+
+span.select2.select2-container.select2-container--default {
+  width: 200px !important;
+  border: none !important;
+}
+
+span.select2-selection.select2-selection--single {
+  border: none;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: $purple;
+}
+
+span#select2-category_select-container:focus {
+  outline: none;
+}
+
+input.select2-search__field:focus {
+  outline: none;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: $grey;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
