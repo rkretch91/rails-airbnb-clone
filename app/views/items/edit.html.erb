@@ -5,7 +5,7 @@
         <%= i.input :name, placeholder: "Catchy name for your item" %>
         <%= i.input :category, collection: ["bags", "jewellery", "fine watches", "belts", "ties", "glasses", "hats", "pocket squares", "cufflinks"] %>
         <%= i.input :description, as: :text, placeholder: "Write about how dapper your item is. The better the description, the more likely it will be booked!" %>
-        <%= i.input :condition, collection: ["perfect", "very good", "good", "worn well"] %>
+        <%= i.input :condition, as: :radio_buttons, collection: ["perfect", "very good", "good", "worn well"] %>
         <%= i.input :brand %>
         <%= i.input :price, label: "Price Per Day (￥)" %>
         <%= i.button :submit, class: "btn btn-primary" %>
