@@ -77,7 +77,7 @@ puts "created users"
 
 # item_create(40)
 
-40.times do
+60.times do
   Item.create(
       name:Faker::Hipster.word,
       category: CATEGORY.sample,
