@@ -1,25 +1,28 @@
 <%= link_to "home", root_path %>
 <div class="container cards">
   <div class="category-title">
-    <h2><%= "You have searched: #{@query}" %></h2>
+    <h2><%= @query_message %></h2>
     <%= link_to "See All", items_path %>
   </div>
-
 
 <div class="row">
   <div class="col col-sm-4 ">
     <form action="/items" method="get" >
-      <select name="categories">
+      <select name="category" id="category_select">
+        <option value="">Choose category...</option>
         <% Item.categories.each do|category|%>
           <option value="<%= category %>"<%= category == @preselect[:category] ? "selected" : "" %> > <%= category.capitalize %></option>
         <% end %>
       </select>
-      <select name="brands">
+      <input type="hidden" name="search" value=<%= params[:search] %> >
+      <select name="brand" id="brand_select">
+        <option value="">Choose brand...</option>
         <% Item.brands.each do|brand|%>
           <option value="<%= brand %>"<%= brand == @preselect[:brand] ? "selected" : "" %> > <%= brand.capitalize %></option>
         <% end %>
       </select>
-      <select name="conditions">
+      <select name="condition" id="condition_select">
+        <option value="">Choose condition...</option>
         <% Item.conditions.each do|condition|%>
           <option value="<%= condition %>" > <%= condition.capitalize %></option>
         <% end %>
